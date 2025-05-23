@@ -9,6 +9,8 @@ from bfcl.model_handler.utils import (
 class SambaCloudHandler(OpenAIHandler):
     def __init__(self, model_name, temperature) -> None:
         super().__init__(model_name, temperature)
+    
+    def _init_client(self):
         base_url = "https://api.sambanova.ai/v1"
         self.client = OpenAI(base_url=base_url, api_key=os.getenv("SAMBACLOUD_API_KEY"))
 
