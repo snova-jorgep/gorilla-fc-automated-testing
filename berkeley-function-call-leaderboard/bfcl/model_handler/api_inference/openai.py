@@ -22,8 +22,10 @@ class OpenAIHandler(BaseHandler):
     def __init__(self, model_name, temperature) -> None:
         super().__init__(model_name, temperature)
         self.model_style = ModelStyle.OpenAI
-        base_url = "https://api.sambanova.ai/v1"
-        self.client = OpenAI(base_url=base_url, api_key=os.getenv("OPENAI_API_KEY"))
+        self._init_client()
+
+    def _init_client(self):
+        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     def decode_ast(self, result, language="Python"):
         if "FC" in self.model_name or self.is_fc_model:

@@ -18,6 +18,7 @@ from bfcl.model_handler.api_inference.nova import NovaHandler
 from bfcl.model_handler.api_inference.novita import NovitaHandler
 from bfcl.model_handler.api_inference.nvidia import NvidiaHandler
 from bfcl.model_handler.api_inference.openai import OpenAIHandler
+from bfcl.model_handler.api_inference.sambacloud import SambaCloudHandler
 from bfcl.model_handler.api_inference.writer import WriterHandler
 from bfcl.model_handler.api_inference.yi import YiHandler
 from bfcl.model_handler.local_inference.bielik import BielikHandler
@@ -1639,6 +1640,18 @@ third_party_inference_model_map = {
         output_price=0.2,
         is_fc_model=False,
         underscore_to_dot=False,
+    ),
+    "DeepSeek-V3-0324-FC": ModelConfig(
+        model_name="DeepSeek-V3-0324-FC",
+        display_name="DeepSeek-V3-0324 (FC)",
+        url="https://www.anthropic.com/news/3-5-models-and-computer-use",
+        org="Sambanova",
+        license="Proprietary",
+        model_handler=SambaCloudHandler,
+        input_price=3,
+        output_price=15,
+        is_fc_model=True,
+        underscore_to_dot=True,
     ),
 }
 
