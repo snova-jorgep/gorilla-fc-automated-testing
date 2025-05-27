@@ -141,5 +141,5 @@ SUPPORTED_MODELS = [
     "meta-llama/llama-4-scout-17b-16e-instruct-FC-novita",
     "qwen/qwq-32b-FC-novita",
     "qwen/qwq-32b-novita",
-    "DeepSeek-V3-0324",
+    "DeepSeek-V3-0324-FC",
 ]

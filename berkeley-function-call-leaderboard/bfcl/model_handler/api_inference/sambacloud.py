@@ -1,4 +1,5 @@
 from bfcl.model_handler.api_inference.openai import OpenAIHandler
+from bfcl.model_handler.api_inference.deepseek import DeepSeekAPIHandler
 from openai import OpenAI, RateLimitError
 import os
 import time
@@ -16,18 +17,23 @@ class SambaCloudHandler(OpenAIHandler):
 
     @retry_with_backoff(error_type=RateLimitError)
     def generate_with_backoff(self, **kwargs):
-        max_retries = 3
+        max_retries = 10
         retry_count = 0
         start_time = time.time()
-        api_response = self.client.chat.completions.create(**kwargs)
         while retry_count < max_retries:
-            api_response = self.client.chat.completions.create(**kwargs)
-            if hasattr(api_response, 'error') and api_response.error:
-                retry_count += 1
-                print(f"Sleeping for 20 seconds...")
-                time.sleep(20)
-                continue
-            break
+            try:
+                api_response = self.client.chat.completions.create(**kwargs)
+                # If there's no error, break out of the loop
+                if not (hasattr(api_response, 'error') and api_response.error):
+                    break
+            except Exception as e:
+                print(f"Error occurred: {str(e)}")
+                
+            # Calculate exponential backoff (base 2)
+            sleep_time = min(2 ** retry_count, 60)  # Cap at 60 seconds to avoid too long waits
+            print(f"Attempt {retry_count + 1} failed. Sleeping for {sleep_time} seconds...")
+            time.sleep(sleep_time)
+            retry_count += 1
+        
         end_time = time.time()
-
         return api_response, end_time - start_time

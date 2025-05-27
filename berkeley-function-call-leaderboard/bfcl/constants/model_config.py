@@ -1641,8 +1641,8 @@ third_party_inference_model_map = {
         is_fc_model=False,
         underscore_to_dot=False,
     ),
-    "DeepSeek-V3-0324": ModelConfig(
-        model_name="DeepSeek-V3-0324",
+    "DeepSeek-V3-0324-FC": ModelConfig(
+        model_name="DeepSeek-V3-0324-FC",
         display_name="DeepSeek-V3-0324 (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="Sambanova",
