@@ -3,9 +3,13 @@ from bfcl.model_handler.api_inference.deepseek import DeepSeekAPIHandler
 from openai import OpenAI, RateLimitError
 import os
 import time
+import json
 from bfcl.model_handler.utils import (
     retry_with_backoff,
 )
+from bfcl.constants.category_mapping import VERSION_PREFIX
+from bfcl.utils import load_file, make_json_serializable, sort_key
+from overrides import final
 
 class OpenaiCompatibleHandler(OpenAIHandler):
     def __init__(self, model_name, temperature) -> None:
@@ -54,3 +58,49 @@ class OpenaiCompatibleHandler(OpenAIHandler):
         
         end_time = time.time()
         return api_response, end_time - start_time
+    
+    @final
+    def write(self, result, result_dir, update_mode=False):
+        model_name_dir = self.model_name.replace("/", "_")
+        model_result_dir = result_dir / f"{self.compatible_provider}_{model_name_dir}"
+        model_result_dir.mkdir(parents=True, exist_ok=True)
+
+        if isinstance(result, dict):
+            result = [result]
+
+        # Collect and format each entry for JSON compatibility
+        entries_to_write = [make_json_serializable(entry) for entry in result]
+
+        # Group entries by their `test_category` for efficient file handling
+        file_entries = {}
+        for entry in entries_to_write:
+            test_category = entry["id"].rsplit("_", 1)[0]
+            file_name = f"{VERSION_PREFIX}_{test_category}_result.json"
+            file_path = model_result_dir / file_name
+            file_entries.setdefault(file_path, []).append(entry)
+
+        for file_path, entries in file_entries.items():
+            if update_mode:
+                # Load existing entries from the file
+                existing_entries = {}
+                if file_path.exists():
+                    existing_entries = {
+                        entry["id"]: entry for entry in load_file(file_path)
+                    }
+
+                # Update existing entries with new data
+                for entry in entries:
+                    existing_entries[entry["id"]] = entry
+
+                # Sort entries by `id` and write them back to ensure order consistency
+                sorted_entries = sorted(existing_entries.values(), key=sort_key)
+                with open(file_path, "w") as f:
+                    for entry in sorted_entries:
+                        f.write(json.dumps(entry) + "\n")
+
+            else:
+                # Normal mode: Append in sorted order
+                entries.sort(key=sort_key)
+                with open(file_path, "a") as f:
+                    for entry in entries:
+                        f.write(json.dumps(entry) + "\n")

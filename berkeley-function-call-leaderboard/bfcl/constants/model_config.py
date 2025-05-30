@@ -1644,7 +1644,7 @@ third_party_inference_model_map = {
 
     "sambanova/Meta-Llama-3.1-405B-Instruct-FC": ModelConfig(
         model_name="Meta-Llama-3.1-405B-Instruct-FC",
-        display_name="Meta-Llama-3.1-405B-Instruct-FC (FC)",
+        display_name="Meta-Llama-3.1-405B-Instruct (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="sambanova",
         license="Proprietary",
@@ -1654,8 +1654,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "sambanova/Meta-Llama-3.3-70B-Instruct": ModelConfig(
-        model_name="Meta-Llama-3.3-70B-Instruct",
+    "sambanova/Meta-Llama-3.3-70B-Instruct-FC": ModelConfig(
+        model_name="Meta-Llama-3.3-70B-Instruct-FC",
         display_name="Meta-Llama-3.3-70B-Instruct (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="sambanova",
@@ -1666,8 +1666,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "sambanova/Llama-4-Scout-17B-16E-Instruct": ModelConfig(
-        model_name="Llama-4-Scout-17B-16E-Instruct",
+    "sambanova/Llama-4-Scout-17B-16E-Instruct-FC": ModelConfig(
+        model_name="Llama-4-Scout-17B-16E-Instruct-FC",
         display_name="Llama-4-Scout-17B-16E-Instruct (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="sambanova",
@@ -1678,8 +1678,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "sambanova/Llama-4-Maverick-17B-128E-Instruct": ModelConfig(
-        model_name="Llama-4-Maverick-17B-128E-Instruct",
+    "sambanova/Llama-4-Maverick-17B-128E-Instruct-FC": ModelConfig(
+        model_name="Llama-4-Maverick-17B-128E-Instruct-FC",
         display_name="Llama-4-Maverick-17B-128E-Instruct (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="sambanova",
@@ -1702,8 +1702,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "sambanova/Qwen3-32B": ModelConfig(
-        model_name="Qwen3-32B",
+    "sambanova/Qwen3-32B-FC": ModelConfig(
+        model_name="Qwen3-32B-FC",
         display_name="Qwen3-32B (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="sambanova",
@@ -1715,8 +1715,8 @@ third_party_inference_model_map = {
         underscore_to_dot=True,
     ),
 
-    "groq/llama-3.3-70b-versatile": ModelConfig(
-        model_name="llama-3.3-70b-versatile",
+    "groq/llama-3.3-70b-versatile-FC": ModelConfig(
+        model_name="llama-3.3-70b-versatile-FC",
         display_name="llama-3.3-70b-versatile (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="groq",
@@ -1727,8 +1727,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "groq/meta-llama/llama-4-scout-17b-16e-instruct": ModelConfig(
-        model_name="meta-llama/llama-4-scout-17b-16e-instruct",
+    "groq/meta-llama/llama-4-scout-17b-16e-instruct-FC": ModelConfig(
+        model_name="meta-llama/llama-4-scout-17b-16e-instruct-FC",
         display_name="meta-llama/llama-4-scout-17b-16e-instruct (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="groq",
@@ -1739,8 +1739,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "groq/meta-llama/llama-4-maverick-17b-128e-instruct": ModelConfig(
-        model_name="meta-llama/llama-4-maverick-17b-128e-instruct",
+    "groq/meta-llama/llama-4-maverick-17b-128e-instruct-FC": ModelConfig(
+        model_name="meta-llama/llama-4-maverick-17b-128e-instruct-FC",
         display_name="meta-llama/llama-4-maverick-17b-128e-instruct (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="groq",
@@ -1752,8 +1752,8 @@ third_party_inference_model_map = {
         underscore_to_dot=True,
     ),
     
-    "cerebras/llama-3.3-70b": ModelConfig(
-        model_name="llama-3.3-70b",
+    "cerebras/llama-3.3-70b-FC": ModelConfig(
+        model_name="llama-3.3-70b-FC",
         display_name="llama-3.3-70b (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="cerebras",
@@ -1764,8 +1764,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "cerebras/llama-4-scout-17b-16e-instruct": ModelConfig(
-        model_name="llama-4-scout-17b-16e-instruct",
+    "cerebras/llama-4-scout-17b-16e-instruct-FC": ModelConfig(
+        model_name="llama-4-scout-17b-16e-instruct-FC",
         display_name="llama-4-scout-17b-16e-instruct (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="cerebras",
@@ -1776,8 +1776,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "cerebras/qwen-3-32b": ModelConfig(
-        model_name="qwen-3-32b",
+    "cerebras/qwen-3-32b-FC": ModelConfig(
+        model_name="qwen-3-32b-FC",
         display_name="qwen-3-32b (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="cerebras",
@@ -1789,8 +1789,8 @@ third_party_inference_model_map = {
         underscore_to_dot=True,
     ),
     
-    "fireworks/accounts/fireworks/models/llama-v3p1-405b-instruct-long": ModelConfig(
-        model_name="accounts/fireworks/models/llama-v3p1-405b-instruct-long",
+    "fireworks/accounts/fireworks/models/llama-v3p1-405b-instruct-long-FC": ModelConfig(
+        model_name="accounts/fireworks/models/llama-v3p1-405b-instruct-long-FC",
         display_name="accounts/fireworks/models/llama-v3p1-405b-instruct-long (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="fireworks",
@@ -1801,8 +1801,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "fireworks/accounts/fireworks/models/llama-v3p3-70b-instruct": ModelConfig(
-        model_name="accounts/fireworks/models/llama-v3p3-70b-instruct",
+    "fireworks/accounts/fireworks/models/llama-v3p3-70b-instruct-FC": ModelConfig(
+        model_name="accounts/fireworks/models/llama-v3p3-70b-instruct-FC",
         display_name="accounts/fireworks/models/llama-v3p3-70b-instruct (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="fireworks",
@@ -1813,8 +1813,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "fireworks/fireworks/models/llama4-scout-instruct-basic": ModelConfig(
-        model_name="fireworks/models/llama4-scout-instruct-basic",
+    "fireworks/accounts/fireworks/models/llama4-scout-instruct-basic-FC": ModelConfig(
+        model_name="fireworks/models/llama4-scout-instruct-basic-FC",
         display_name="fireworks/models/llama4-scout-instruct-basic (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="fireworks",
@@ -1825,8 +1825,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "fireworks/accounts/fireworks/models/llama4-maverick-instruct-basic": ModelConfig(
-        model_name="accounts/fireworks/models/llama4-maverick-instruct-basic",
+    "fireworks/accounts/fireworks/models/llama4-maverick-instruct-basic-FC": ModelConfig(
+        model_name="accounts/fireworks/models/llama4-maverick-instruct-basic-FC",
         display_name="accounts/fireworks/models/llama4-maverick-instruct-basic (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="fireworks",
@@ -1837,8 +1837,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "fireworks/accounts/fireworks/models/deepseek-v3-0324": ModelConfig(
-        model_name="accounts/fireworks/models/deepseek-v3-0324",
+    "fireworks/accounts/fireworks/models/deepseek-v3-0324-FC": ModelConfig(
+        model_name="accounts/fireworks/models/deepseek-v3-0324-FC",
         display_name="accounts/fireworks/models/deepseek-v3-0324 (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="fireworks",
@@ -1849,8 +1849,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "fireworks/accounts/fireworks/models/qwen3-30b-a3b": ModelConfig(
-        model_name="accounts/fireworks/models/qwen3-30b-a3b",
+    "fireworks/accounts/fireworks/models/qwen3-30b-a3b-FC": ModelConfig(
+        model_name="accounts/fireworks/models/qwen3-30b-a3b-FC",
         display_name="accounts/fireworks/models/qwen3-30b-a3b (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="fireworks",
@@ -1862,8 +1862,8 @@ third_party_inference_model_map = {
         underscore_to_dot=True,
     ),
     
-    "together/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo": ModelConfig(
-        model_name="meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo",
+    "together/meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo-FC": ModelConfig(
+        model_name="meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo-FC",
         display_name="meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="together",
@@ -1874,8 +1874,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "together/meta-llama/Llama-3.3-70B-Instruct-Turbo-Free": ModelConfig(
-        model_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
+    "together/meta-llama/Llama-3.3-70B-Instruct-Turbo-Free-FC": ModelConfig(
+        model_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free-FC",
         display_name="meta-llama/Llama-3.3-70B-Instruct-Turbo-Free (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="together",
@@ -1886,8 +1886,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "together/meta-llama/Llama-4-Scout-17B-16E-Instruct": ModelConfig(
-        model_name="meta-llama/Llama-4-Scout-17B-16E-Instruct",
+    "together/meta-llama/Llama-4-Scout-17B-16E-Instruct-FC": ModelConfig(
+        model_name="meta-llama/Llama-4-Scout-17B-16E-Instruct-FC",
         display_name="meta-llama/Llama-4-Scout-17B-16E-Instruct (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="together",
@@ -1898,8 +1898,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "together/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8": ModelConfig(
-        model_name="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8",
+    "together/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-FC": ModelConfig(
+        model_name="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8-FC",
         display_name="meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8 (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="together",
@@ -1910,8 +1910,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "together/deepseek-ai/DeepSeek-V3": ModelConfig(
-        model_name="deepseek-ai/DeepSeek-V3",
+    "together/deepseek-ai/DeepSeek-V3-FC": ModelConfig(
+        model_name="deepseek-ai/DeepSeek-V3-FC",
         display_name="deepseek-ai/DeepSeek-V3 (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="together",
@@ -1922,8 +1922,8 @@ third_party_inference_model_map = {
         is_fc_model=True,
         underscore_to_dot=True,
     ),
-    "together/Qwen/Qwen3-235B-A22B-fp8-tput": ModelConfig(
-        model_name="Qwen/Qwen3-235B-A22B-fp8-tput",
+    "together/Qwen/Qwen3-235B-A22B-fp8-tput-FC": ModelConfig(
+        model_name="Qwen/Qwen3-235B-A22B-fp8-tput-FC",
         display_name="Qwen/Qwen3-235B-A22B-fp8-tput (FC)",
         url="https://www.anthropic.com/news/3-5-models-and-computer-use",
         org="together",
