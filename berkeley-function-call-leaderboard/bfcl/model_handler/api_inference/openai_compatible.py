@@ -16,7 +16,7 @@ class OpenaiCompatibleHandler(OpenAIHandler):
     def _init_client(self):
         if self.compatible_provider == "sambanova":
             base_url = "https://api.sambanova.ai/v1"
-            self.client = OpenAI(base_url=base_url, api_key=os.getenv("SAMBACLOUD_API_KEY"))
+            self.client = OpenAI(base_url=base_url, api_key=os.getenv("SAMBANOVA_API_KEY"))
         elif self.compatible_provider == "groq":
             base_url = "https://api.groq.com/openai/v1"
             self.client = OpenAI(base_url=base_url, api_key=os.getenv("GROQ_API_KEY"))
