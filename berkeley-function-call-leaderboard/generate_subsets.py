@@ -84,4 +84,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    # sample usage: `python generate_subsets.py BFCL_v3_simple BFCL_v3_multi_turn_base BFCL_v3_multiple BFCL_v3_parallel_multiple BFCL_v3_multi_turn_long_context -n 3`
+    # sample usage: `python generate_subsets.py BFCL_v3_simple BFCL_v3_live_simple BFCL_v3_multi_turn_base BFCL_v3_multiple BFCL_v3_live_multiple BFCL_v3_parallel_multiple BFCL_v3_live_parallel_multiple BFCL_v3_multi_turn_long_context -n 3`
