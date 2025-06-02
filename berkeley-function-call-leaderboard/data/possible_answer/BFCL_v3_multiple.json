@@ -1,3 +1,3 @@
-{"id": "multiple_0", "ground_truth": [{"triangle_properties.get": {"side1": [5], "side2": [4], "side3": [3], "get_area": ["", true], "get_perimeter": ["", true], "get_angles": ["", true]}}]}
-{"id": "multiple_1", "ground_truth": [{"math.triangle_area_heron": {"side1": [3], "side2": [4], "side3": [5]}}]}
-{"id": "multiple_2", "ground_truth": [{"country_info.capital": {"country": ["Brazil"]}}]}
+{"id": "multiple_6", "ground_truth": [{"capacitance_calculator.calculate": {"A": [10], "d": [0.01], "K": [1.0, ""]}}]}
+{"id": "multiple_28", "ground_truth": [{"solve.quadratic_equation": {"a": [2], "b": [3], "c": [-4]}}]}
+{"id": "multiple_163", "ground_truth": [{"metropolitan_museum.get_top_artworks": {"number": [5], "sort_by": ["popularity"]}}]}
