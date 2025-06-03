@@ -36,7 +36,7 @@ def run_models_for_provider(provider, models):
     date_str = datetime.now().strftime("%d-%m-%Y-%H-%M-%S")
 
     # Step 0: generate subsets before generation and evaluation
-    subset_command = ["python", "generate_subsets.py"] + ["BFCL_v3_simple BFCL_v3_live_simple BFCL_v3_multi_turn_base BFCL_v3_multiple BFCL_v3_live_multiple BFCL_v3_parallel_multiple BFCL_v3_live_parallel_multiple BFCL_v3_multi_turn_long_context"] + ["-n", "3"]
+    subset_command = ["python", "generate_subsets.py", "BFCL_v3_simple", "BFCL_v3_live_simple", "BFCL_v3_multi_turn_base", "BFCL_v3_multiple", "BFCL_v3_live_multiple", "BFCL_v3_parallel_multiple", "BFCL_v3_live_parallel_multiple", "BFCL_v3_multi_turn_long_context", "-n", "3"]
 
     try:
         print(f"\nRunning subset generation: {' '.join(subset_command)}")
