@@ -44,10 +44,10 @@ def run_models_for_provider(provider, models):
         score_path = os.path.join("score", provider, date_str)
 
         # Step 1: generate
-        run_bfcl_command("generate", model, "simple,multiple", result_path)
+        run_bfcl_command("generate", model, "simple,multiple,live_parallel,multi_turn_base,parallel_multiple,multi_turn_long_context", result_path)
 
         # Step 2: evaluate
-        run_bfcl_command("evaluate", model, "simple,multiple", result_path, score_dir=score_path)
+        run_bfcl_command("evaluate", model, "simple,multiple,live_parallel,multi_turn_base,parallel_multiple,multi_turn_long_context", result_path, score_dir=score_path)
     return date_str
 
 def main():
@@ -55,7 +55,7 @@ def main():
     providers = load_json(json_path)
     mapping_path = "model_map.json"
     model_map = load_json(mapping_path)
-    test_category = ["simple", "multiple", "multi_turn_base", "parallel_multiple", "multi_turn_long_context"]
+    test_category = ["simple", "multiple", "live_parallel", "multi_turn_base", "parallel_multiple", "multi_turn_long_context"]
     scores = []
 
     subset_command = ["python", "generate_subsets.py", "BFCL_v3_simple", "BFCL_v3_live_simple", "BFCL_v3_multi_turn_base", "BFCL_v3_multiple", "BFCL_v3_live_multiple", "BFCL_v3_parallel_multiple", "BFCL_v3_live_parallel_multiple", "BFCL_v3_multi_turn_long_context", "-n", "1"]
