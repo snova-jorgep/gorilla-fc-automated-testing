@@ -3,9 +3,12 @@ import concurrent.futures
 import uuid
 from datetime import datetime
 import json
+import time
+import csv
 import os
 
-def load_models_from_json(file_path):
+
+def load_json(file_path):
     with open(file_path, "r") as f:
         return json.load(f)
 
@@ -49,7 +52,9 @@ def run_models_for_provider(provider, models):
 
 def main():
     json_path = "provider_models.json"
-    providers = load_models_from_json(json_path)
+    providers = load_json(json_path)
+    mapping_path = "model_map.json"
+    model_map = load_json(mapping_path)
     test_category = ["simple", "multiple", "multi_turn_base", "parallel_multiple", "multi_turn_long_context"]
     scores = []
 
@@ -71,33 +76,52 @@ def main():
     #         for provider, models in providers.items()
     #     ]
     #     concurrent.futures.wait(futures)
+
     run_id = str(uuid.uuid4())
     for provider, models in providers.items():
         date_str = run_models_for_provider(provider, models)
 
-        for model in models:
-            model = model.replace("/", "_")
-            for category in test_category:
+        for category in test_category:
+            curr_dict = {
+                        "run_id": run_id, "test_suite_name": f"Berkeley AI Benchmarking - {category}",
+                        "provider": provider, "date": date_str
+                    }
+            for model in models:
+                model = model.replace("/", "_")
                 score_path = os.path.join("score", provider, date_str, model, f"BFCL_v3_{category}_score.json")
                 try:
                     with open(score_path, "r") as f:
                         first_line = f.readline()
                         data = json.loads(first_line)
-                        scores.append(
-                            {
-                        "run_id": run_id, "test_suite_name": f"Berkeley AI Benchmarking - {category}",
-                        "provider": provider, "n_samples": data.get("total_count"), "data": date_str,
-                        "model_name": model, "score": data.get("accuracy")
-                    }
-                )
+                        curr_dict["n_samples"] = data.get("total_count")
+                        curr_dict[model_map[model]] = data.get("accuracy")
                 except FileNotFoundError:
                     print(f"Score file not found: {score_path}")
                 except json.JSONDecodeError:
                     print(f"Invalid JSON in file: {score_path}")
                 except Exception as e:
                     print(f"Error reading score for {provider}/{model}: {e}")
+            
+            scores.append(curr_dict)
 
+    all_keys = set()
+    for score in scores:
+        all_keys.update(score.keys())
+    all_keys = list(all_keys)
+
+    with open('scores.csv', 'w', newline='') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=all_keys, delimiter=';', extrasaction='ignore')
+
+        writer.writeheader()
+        for score in scores:
+            writer.writerow(score)
+    
     print("\nCollected Scores:")
     print(scores)
+
 if __name__ == "__main__":
+    start_time = time.time()
     main()
+    end_time = time.time()
+    execution_time = end_time - start_time
+    print(f"Execution time: {execution_time:.6f} seconds")
