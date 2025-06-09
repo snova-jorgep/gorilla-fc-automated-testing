@@ -69,10 +69,10 @@ def generate_subset(dataset_name, subset_size, seed):
     save_jsonl(answer_path, subset_answers)
     
     # Save the indices used for this subset
-    index_log_path = question_path.with_name(question_path.stem + '_indices.json')
+    index_log_path = question_path.with_name(question_path.stem + '_indices.txt')
     with open(index_log_path, 'w', encoding='utf-8') as f:
-        json.dump(indices, f, ensure_ascii=False, indent=2)
-    print(f"  Indices saved to: {index_log_path}")
+        for idx in indices:
+            f.write(f"{idx}\n")
 
 
     print(f"  Selected indices: {indices}")
